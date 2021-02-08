@@ -16,6 +16,9 @@
       h1 {
         color: #fff;
       }
+      h2 {
+        color: #fff;
+      }
       .cursor_item {
         position: absolute;
         width: 100px;
@@ -28,13 +31,13 @@
 
     <script>
       window.onload = function () {
-        let h1 = document.getElementsByTagName('h1')[0];
+        let h2 = document.getElementsByTagName('h2')[0];
         let cursor_item = document.getElementsByClassName('cursor_item')[0];
 
         window.addEventListener('mousemove', mouseFunc, false);
 
         function mouseFunc(e) {
-          h1.innerHTML = `x: ${e.clientX}, y: ${e.clientY}`;
+          h2.innerHTML = `x: ${e.clientX}, y: ${e.clientY}`;
           cursor_item.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         }
       };
@@ -42,6 +45,7 @@
   </head>
   <body>
     <h1>Mouse Move 값 활용</h1>
+    <h2></h2>
     <div class="cursor_item"></div>
   </body>
 </html>

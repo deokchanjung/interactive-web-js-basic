@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      requestAnimationFrame (loop, 자연스러운 움직임) - 몇 줄로 끝내는
-      인터랙티브 웹 개발 노하우 [초급편]
+      transition, easing (가속도) - 몇 줄로 끝내는 인터랙티브 웹 개발 노하우
+      [초급편]
     </title>
 
     <style>
@@ -31,30 +31,40 @@
     </style>
 
     <script>
+      let h2;
+      let cursor_item;
+      let x = 0;
+      let y = 0;
+      let mx = 0;
+      let my = 0;
+      let speed = 0.1;
+
       window.onload = function () {
-        let h2 = document.getElementsByTagName('h2')[0];
-        let cursor_item = document.getElementsByClassName('cursor_item')[0];
+        h2 = document.getElementsByTagName('h2')[0];
+        cursor_item = document.getElementsByClassName('cursor_item')[0];
 
         window.addEventListener('mousemove', mouseFunc, false);
 
         function mouseFunc(e) {
-          h2.innerHTML = `x: ${e.clientX}, y: ${e.clientY}`;
-          cursor_item.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+          x = e.clientX;
+          y = e.clientY;
         }
 
         loop();
       };
 
-      let i = 0;
-
       function loop() {
-        console.log(i++);
+        mx += (x - mx) * speed;
+        my += (y - my) * speed;
+
+        h2.innerHTML = `x: ${x}, y: ${mx}`;
+        cursor_item.style.transform = `translate(${mx}px, ${my}px)`;
         window.requestAnimationFrame(loop);
       }
     </script>
   </head>
   <body>
-    <h1>requestAnimationFrame (loop, 자연스러운 움직임)</h1>
+    <h1>transition, easing (가속도)</h1>
     <h2></h2>
     <div class="cursor_item"></div>
   </body>

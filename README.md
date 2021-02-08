@@ -11,3 +11,4 @@
 | 마우스를 활용한 인터랙티브 |               mouse move 값 활용                | [mouse/mouse-move.html](./mouse/mouse-move.html)                           |
 |                            | requestAnimationFrame (loop, 자연스러운 움직임) | [mouse/request-animation-frame.html](./mouse/request-animation-frame.html) |
 |                            |          transform, translate 값 변경           | [mouse/transform-and-translate.html](./mouse/transform-and-translate.html) |
+|                            |           transition, easing (가속도)           | [mouse/transition, easing (가속도)](./mouse/transition-and-easing.html)    |
